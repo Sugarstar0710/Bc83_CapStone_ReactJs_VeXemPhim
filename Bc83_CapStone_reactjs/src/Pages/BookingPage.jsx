@@ -42,24 +42,48 @@ export default function BookingPage(){
   const total = useMemo(() => selected.reduce((sum, s) => sum + (s.giaVe || 0), 0), [selected]);
 
   const onBook = async () => {
-    if (!isAuthenticated) return; // đã có guard route; đề phòng F5
-    if (!selected.length) return;
+  if (!isAuthenticated || !selected.length) return;
+  try {
+    const payload = {
+      maLichChieu: Number(id),
+      danhSachVe: selected.map(s => ({ maGhe: s.maGhe, giaVe: s.giaVe })),
+    };
+    await bookTickets(payload);
 
-    try {
-      const payload = {
-        maLichChieu: Number(id),
-        danhSachVe: selected.map(s => ({ maGhe: s.maGhe, giaVe: s.giaVe })),
-      };
-      await bookTickets(payload);
-      alert("Đặt vé thành công! 🎉");
-      navigate("/"); // hoặc điều hướng về lịch sử vé
-    } catch (e) {
-      console.error(e);
-      alert(e?.message || "Đặt vé thất bại");
-      refetch(); // reload sơ đồ
-      setSelected([]);
-    }
-  };
+    // Tạo dữ liệu order để hiển thị ở trang thành công
+    const order = {
+      code: `MH${Date.now()}`.slice(0, 12),
+      purchasedAt: new Date().toISOString(),
+      showtimeId: Number(id),
+      movie: {
+        title: info.tenPhim,
+        poster: info.hinhAnh,
+      },
+      theater: {
+        cumRap: info.tenCumRap,
+        rap: info.tenRap,
+        address: info.diaChi,
+      },
+      schedule: {
+        date: info.ngayChieu,
+        time: info.gioChieu,
+      },
+      seats: selected.map(s => ({ maGhe: s.maGhe, tenGhe: s.tenGhe, loaiGhe: s.loaiGhe, giaVe: s.giaVe })),
+      total: selected.reduce((sum, s) => sum + (s.giaVe || 0), 0),
+    };
+
+  
+    localStorage.setItem("lastOrder", JSON.stringify(order));
+
+    
+    navigate("/datve/thanhcong", { replace: true, state: { order } });
+  } catch (e) {
+    console.error(e);
+    alert(e?.message || "Đặt vé thất bại");
+    refetch();
+    setSelected([]);
+  }
+};
 
   // render grid ghế theo 16 cột
   const seatCells = useMemo(() => {

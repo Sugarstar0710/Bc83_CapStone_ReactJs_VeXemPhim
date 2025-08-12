@@ -6,6 +6,7 @@ import RegisterPage from "../Pages/RegisterPage.jsx";
 import MovieDetail from "../Pages/MovieDetail.jsx";
 import BookingPage from "../Pages/BookingPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import BookingSuccess from "../Pages/BookingSuccess.jsx";
 export default function AppRouter() {
     return (
         <Suspense fallback={<div>Đang tải...</div>}>
@@ -21,9 +22,12 @@ export default function AppRouter() {
                 <Route path="detail/:id" element={<MovieDetail />} />
 
                  <Route element={<ProtectedRoute />}>
-          <Route path="datve/:id" element={<BookingPage />} />
+          <Route path="datve">
+            <Route path=":id" element={<BookingPage />} />
+            <Route path="thanhcong" element={<BookingSuccess />} />
+          </Route>
         </Route>
-                {/* Trang 404 */}
+                
                 <Route path="*" element={<div>404 - Không tìm thấy trang</div>} />
             </Routes>
         </Suspense>

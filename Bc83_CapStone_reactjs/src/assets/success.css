@@ -1,0 +1,18 @@
+.success-wrap{max-width:900px;margin:0 auto;padding:24px}
+.ticket-card{display:grid;gap:24px;grid-template-columns:1fr 240px;border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:18px}
+@media(max-width:920px){.ticket-card{grid-template-columns:1fr}}
+.ok-badge{width:40px;height:40px;border-radius:999px;background:#10b981;display:flex;align-items:center;justify-content:center;font-weight:800}
+.sub{color:var(--muted);margin:6px 0 12px}
+.mv-box{display:flex;gap:12px;align-items:center;margin:8px 0 12px}
+.mv-box img{width:72px;height:96px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.mv-title{font-weight:800}
+.rows{display:grid;gap:8px;margin:12px 0}
+.row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed #2e333d;padding-bottom:8px}
+.row:last-child{border-bottom:none}
+.actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+
+.tick-right{display:flex;flex-direction:column;align-items:center;justify-content:center;border-left:1px dashed #2e333d;padding-left:16px}
+@media(max-width:920px){.tick-right{border-left:none;border-top:1px dashed #2e333d;padding-left:0;padding-top:16px}}
+.qr{width:180px;height:180px;border-radius:16px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg, rgba(255,255,255,.06), rgba(255,255,255,.06) 10px, rgba(255,255,255,.02) 10px, rgba(255,255,255,.02) 20px)}
+.qr-inner{font-size:12px;color:var(--muted);text-align:center;padding:8px}
+.small{font-size:12px}
