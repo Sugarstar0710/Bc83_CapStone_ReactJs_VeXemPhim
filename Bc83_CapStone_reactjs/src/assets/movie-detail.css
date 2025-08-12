@@ -1,0 +1,30 @@
+.detail-wrap{max-width:1200px;margin:0 auto;padding:24px}
+.detail-grid{display:grid;gap:24px;grid-template-columns:280px 1fr}
+.poster img{width:100%;border-radius:16px;border:1px solid var(--line)}
+.mv-title{margin:0 0 8px;font-size:28px;font-weight:800}
+.mv-desc{margin:0 0 16px;color:var(--muted)}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab{height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer}
+.tab.active,.tab:hover{background:rgba(255,255,255,.06);border-color:#333a45}
+.panel{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--panel)}
+.date-strip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.date{width:86px;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:12px;padding:6px 8px;cursor:pointer}
+.date .d1{font-weight:700}
+.date .d2{font-size:12px;color:var(--muted)}
+.date.active,.date:hover{background:rgba(255,255,255,.06);border-color:#333a45}
+.cinema-strip{display:flex;gap:12px;overflow:auto}
+.cinema-item{min-width:56px;height:56px;border-radius:12px;border:1px solid var(--line);background:transparent;display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer;color:var(--text)}
+.cinema-item img{max-width:100%;max-height:100%;object-fit:contain}
+.cinema-item:hover,.cinema-item.active{background:rgba(255,255,255,.06);border-color:#333a45}
+.sys-list{display:grid;gap:16px;margin-top:8px}
+.sys{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sys-head{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+.sys-head img{width:28px;height:28px;object-fit:contain}
+.sys-name{font-weight:700}
+.cluster{padding:12px}
+.cluster + .cluster{border-top:1px solid var(--line)}
+.cluster-name .c1{font-weight:700}
+.cluster-name .c2{color:var(--muted);font-size:12px}
+.times{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.time-btn{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);text-decoration:none;color:var(--text)}
+.time-btn:hover{background:rgba(255,255,255,.06);border-color:#333a45}
