@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
 
 export default function HomePage() {
-  const { data: all, isLoading, isError } = useMoviesHome("GP01");
+  const { data: all, isLoading, isError } = useMoviesHome("GP00");
 
   // --- Search ---
   const [q, setQ] = useState("");
